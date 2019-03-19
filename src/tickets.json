@@ -1,0 +1,34 @@
+{
+    "tickets": [
+        {
+            "title": "Ticket 1",
+            "responsible": "Mark",
+            "description": "lorem ipsum",
+            "priority": "Low"
+        },
+        {
+            "title": "Ticket 2",
+            "responsible": "Ryan",
+            "description": "lorem ipsum 2",
+            "priority": "Medium"
+        },
+        {
+            "title": "Ticket 3",
+            "responsible": "Joseph",
+            "description": "lorem ipsum 3",
+            "priority": "High"
+        },
+        {
+            "title": "Ticket 4",
+            "responsible": "María",
+            "description": "lorem ipsum 4",
+            "priority": "High"
+        },
+        {
+            "title": "Ticket 5",
+            "responsible": "Pepita",
+            "description": "lorem ipsum 5",
+            "priority": "Low"
+        }
+    ]
+}

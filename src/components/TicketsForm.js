@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import '../App';
 
 class TicketsForm extends Component {
     constructor(){
@@ -10,17 +11,33 @@ class TicketsForm extends Component {
             description: '',
             priority: 'low'
         };
+        this.handleInput = this.handleInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    handleSubmit(e){
+        e.preventDefault(); // evento que evita refrescar la página
+        this.props.onAddTicket(this.state);
+        this.setState({
+            title: '',
+            responsible: '',
+            description: '',
+            priority: 'low'
+          });
+        }
+
 handleInput(e){
-    console.log(e.target.value, e.target.name);
+    const { value, name } = e.target;
+    this.setState({ // aca se pierde el scope del state. Hay que enlazar el handleInput con bind en la clase donde esta el estado
+        [name]: value
+    })
 }
 
     render () {
         return (
             <div className="container">
             <div className="card mt-4">
-                <form className="card-body">
+                <form className="card-body" onSubmit={ this.handleSubmit }>
                     <div className="form-group">
                         <input
                             type="text"
@@ -52,13 +69,22 @@ handleInput(e){
                             <select   
                                 name="priority"
                                 className="form-control"
+                                value={this.state.priority}
                                 onChange={ this.handleInput }
                                 >
-                                <option value="Low">Low</option>
-                                <option value="Medium">Medium</option>
-                                <option value="High" selected>High</option>
+                                <option >Low</option>
+                                <option >Medium</option>
+                                <option >High</option>
                                 
                             </select>
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="submit"
+                            name="send"
+                            onChange={ this.handleInput }
+                            className="btn btn-primary"
+                        />
                     </div>
                 </form>
             </div>

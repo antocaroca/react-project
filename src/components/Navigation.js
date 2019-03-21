@@ -2,10 +2,9 @@ import React from 'react';
 
 const Navigation = () => (
     <nav className="navbar navbar-dark bg-dark">
-      <a href="" className="text-white">
+      <a href="/" className="text-white">
             Tickets
-            
-        </a>
+      </a>
     </nav>
   );
   
